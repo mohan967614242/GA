@@ -7,18 +7,15 @@ on:
     branches: [ "master" ]
   pull_request: 
     branches: ["master"]
+env: 
+  name: "this is the gloabl variable"
 
 jobs:
   build: 
     runs-on: ubuntu-latest 
-    timeout-minutes: 1
     steps: 
-      - name: wait for the job 
-        run: sleep 62
-        continue-on-error: true
-      - name: conitnue on error checking 
-        run: echo "print the the message" 
-        continue-on-error: true
-        
+      - name: here we are printing the global variable 
+        run: echo $name
+   
   
 
