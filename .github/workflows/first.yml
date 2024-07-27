@@ -9,25 +9,19 @@ on:
     branches: ["master"]
 
 jobs:
-  test: 
-    runs-on: ubuntu-latest 
-    steps: 
-      - name: checkout stage 
-        run: sleep 10 
-    
   build: 
-    needs: test
     runs-on: ubuntu-latest 
+    strategy: 
+      matrix: 
+        os: [ubuntu-latest,macos-latest]
+        node: [14,15]
     steps: 
-      - name: here we are perforimg the testing 
-        run: sleep 10 
-    
-  deploy: 
-    needs: [build,test]
-    runs-on: ubuntu-latest
-    steps: 
-      - name: here we are performing the deploy stages 
-        run: sleep 10
-    
+      - name: checkout the code 
+        uses: actions/checkout@v2 
+      - name: install dependecies 
+        run: npm install 
+      - name: build 
+        run: echo "build done here" 
+        
   
 
