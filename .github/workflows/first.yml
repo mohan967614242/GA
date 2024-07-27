@@ -15,6 +15,7 @@ jobs:
     steps: 
       - name: wait for the job 
         run: sleep 62
+        continue-on-error: true
       - name: conitnue on error checking 
         run: echo "print the the message" 
         continue-on-error: true
