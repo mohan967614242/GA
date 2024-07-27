@@ -11,17 +11,11 @@ on:
 jobs:
   build: 
     runs-on: ubuntu-latest 
-    strategy: 
-      matrix: 
-        os: [ubuntu-latest,macos-latest]
-        node: [14,15]
+    timeout-minutes: 1
     steps: 
-      - name: checkout the code 
-        uses: actions/checkout@v2 
-      - name: install dependecies 
-        run: npm install 
-      - name: build 
-        run: echo "build done here" 
+      - name: wait for the job 
+        run: sleep 62
+    
         
   
 
